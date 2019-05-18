@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form class="employee-form" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="input">
+          <input matInput placeholder="Имя" value="" formControlName="firstName">
+          <mat-error *ngIf="employeeForm.controls.firstName.hasError('required')">введите имя</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+          <input matInput placeholder="Фамилия" formControlName="secondName">
+          <mat-error *ngIf="employeeForm.controls.secondName.hasError('required')">введите фамилию</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+          <input matInput placeholder="Отчество" formControlName="patronymic">
+          <mat-error *ngIf="employeeForm.controls.patronymic.hasError('required')">введите отчество</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="input">
+          <input matInput placeholder="Телефон" value="" formControlName="phone">
+          <mat-error *ngIf="employeeForm.controls.phone.hasError('required')">введите телефон</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field class="input">
+          <input matInput placeholder="email" formControlName="email">
+          <mat-error *ngIf="employeeForm.controls.email.hasError('required')">введите e-mail</mat-error>
+          <mat-error *ngIf="employeeForm.controls.email.hasError('email')">введите корректный e-mail</mat-error>
+        </mat-form-field>
+        
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Дата" formControlName="date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" class="button">Сохранить</button>
+
+      </form>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container" *ngIf="user">
+  <div class="row">
+    <div class="col-12">
+      <div class="greeting">
+        <span>Вы вошли, как {{user.role}}</span> <br>
+        <button mat-raised-button color="warn" (click)="logout()" class="logout-button">выйти</button>
+        <a href="" routerLink="/employees" *ngIf="showGoBackBut" class="back-link">назад</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
